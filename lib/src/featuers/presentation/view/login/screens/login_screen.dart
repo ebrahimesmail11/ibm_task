@@ -4,8 +4,6 @@ import 'package:ibm_task/src/common/animation/animation_do.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
-import 'package:ibm_task/src/common/widgets/app_regex.dart';
-import 'package:ibm_task/src/common/widgets/app_text_from_field.dart';
 import 'package:ibm_task/src/featuers/presentation/view/login/widgets/login_button.dart';
 import 'package:ibm_task/src/featuers/presentation/view/login/widgets/login_text_from_field.dart';
 import 'package:ibm_task/src/featuers/presentation/view/login/widgets/socail_app_section.dart';
@@ -49,36 +47,45 @@ class LoginScreen extends StatelessWidget {
         SizedBox(height: 30.h),
         const LoginButton(),
         50.verticalSpace,
-        Text(
-          AppConstants.orUsingSignUp,
-          style: context.displayMedium!.copyWith(
-            fontSize: 14.sp,
-            fontWeight: TextStyles.bold,
-            color: Colors.black.withOpacity(.3),
+        CustomFadeInDown(
+          duration: 600,
+          child: Text(
+            AppConstants.orUsingSignUp,
+            style: context.displayMedium!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: TextStyles.bold,
+              color: Colors.black.withOpacity(.3),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
         20.verticalSpace,
-       const  SocailAppSection(),
-       140.verticalSpace,
-       Text(
-          AppConstants.orUsingSignUp,
-          style: context.displayMedium!.copyWith(
-            fontSize: 14.sp,
-            fontWeight: TextStyles.bold,
-            color: Colors.black.withOpacity(.3),
+        const SocailAppSection(),
+        140.verticalSpace,
+        CustomFadeInDown(
+          duration: 600,
+          child: Text(
+            AppConstants.orUsingSignUp,
+            style: context.displayMedium!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: TextStyles.bold,
+              color: Colors.black.withOpacity(.3),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
         20.verticalSpace,
-        Text(
-          AppConstants.signUp,
-          style: context.displayMedium!.copyWith(
-            fontSize: 14.sp,
-            fontWeight: TextStyles.bold,
-            color: Colors.black.withOpacity(0.5),
+        CustomFadeInDown(
+          duration: 600,
+          child: Text(
+            AppConstants.signUp,
+            style: context.displayMedium!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: TextStyles.bold,
+              color: Colors.black.withOpacity(0.5),
+            ),
+            textAlign: TextAlign.center,
           ),
-          textAlign: TextAlign.center,
         ),
       ],
     ));
