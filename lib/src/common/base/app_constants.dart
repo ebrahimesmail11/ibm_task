@@ -8,6 +8,8 @@ class AppConstants {
    static const String email='Email';
    static const String password='Password';
    static const String typeYourUserName='Type your email';
+   static const String  validEmail="Please enter a valid email";
+    static const String validPasswrod="Please enter a valid password, not less than 6 characters";
    static const String typeYourPassword='Type your password';
    static const String forgotPassword='Forgot Password?';
    static const String loginButton='LOGIN';

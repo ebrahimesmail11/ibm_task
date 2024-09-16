@@ -9,6 +9,7 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.purple,
     required this.pink,
     required this.pinkDark,
+    required this.blueDark,
   });
   final Color? grey;
   final Color? lightBlue;
@@ -16,6 +17,7 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color? purple;
   final Color? pink;
   final Color? pinkDark;
+  final Color?  blueDark;
 
   @override
   ThemeExtension<MyColors> copyWith({
@@ -25,6 +27,7 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? purple,
     Color? pink,
     Color? pinkDark,
+    Color? blueDark,
  
   }) {
     return MyColors(
@@ -34,6 +37,7 @@ class MyColors extends ThemeExtension<MyColors> {
       purple: purple,
       pink: pink,
       pinkDark: pinkDark,
+      blueDark: blueDark,
     );
   }
 
@@ -52,6 +56,7 @@ class MyColors extends ThemeExtension<MyColors> {
       purple: purple,
       pink: pink,
       pinkDark: pinkDark,
+      blueDark: blueDark,
     );
   }
 
@@ -63,5 +68,6 @@ class MyColors extends ThemeExtension<MyColors> {
     purple: AppColors.purple,
     pink: AppColors.pink, 
     pinkDark: AppColors.pinkDark,
+    blueDark: AppColors.blueDark,
   );
 }

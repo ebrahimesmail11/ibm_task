@@ -30,9 +30,7 @@ class TextStyles {
     fontSize: 14.0, // Font size for the "Forgot Password?" text
     fontFamily: poppins, // Font family (Poppins in this example)
     fontWeight: medium, // Semi-bold to make it noticeable
-    color: AppColors.grey, // Set the color to blue to indicate a clickable link
-    decoration:
-        TextDecoration.underline, // Underline to give it a link-like appearance
+    color: AppColors.grey, // Set the color to blue to indicate a clickable link // Underline to give it a link-like appearance
   );
   static const  TextStyle poppins16Bold =  TextStyle(
       fontSize: 16.0,              // Font size for the button text

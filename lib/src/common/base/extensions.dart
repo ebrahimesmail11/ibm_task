@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ibm_task/src/utils/colors/app_colors.dart';
+import 'package:ibm_task/src/utils/theme/colors_extension.dart';
 
 
 extension Navigation on BuildContext {
 
   //Colors
-  AppColors get colors => Theme.of(this).extension<AppColors>()!;
+  MyColors get colors => Theme.of(this).extension<MyColors>()!;
 
   // //Images
   // MyAssets get images => Theme.of(this).extension<MyAssets>()!;
