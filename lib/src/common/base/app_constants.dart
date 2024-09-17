@@ -15,4 +15,8 @@ class AppConstants {
    static const String loginButton='LOGIN';
    static const orUsingSignUp='or Sign Up Using';
    static const String signUp='SIGN UP';
+   static const String continueButton= "Continue";
+   static const String okTitle= "OK";
+   static const String unauthorized= "Unauthorized";
+   static const String sorry= "Sorry";
 }

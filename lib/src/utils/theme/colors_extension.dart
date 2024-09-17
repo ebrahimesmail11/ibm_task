@@ -10,6 +10,8 @@ class MyColors extends ThemeExtension<MyColors> {
     required this.pink,
     required this.pinkDark,
     required this.blueDark,
+    required this.forgetPasswordText,
+    required this.registerSuccessful,
   });
   final Color? grey;
   final Color? lightBlue;
@@ -18,6 +20,8 @@ class MyColors extends ThemeExtension<MyColors> {
   final Color? pink;
   final Color? pinkDark;
   final Color?  blueDark;
+  final Color? forgetPasswordText;
+  final Color? registerSuccessful;
 
   @override
   ThemeExtension<MyColors> copyWith({
@@ -28,6 +32,7 @@ class MyColors extends ThemeExtension<MyColors> {
     Color? pink,
     Color? pinkDark,
     Color? blueDark,
+    Color? forgetPasswordText,
  
   }) {
     return MyColors(
@@ -38,6 +43,8 @@ class MyColors extends ThemeExtension<MyColors> {
       pink: pink,
       pinkDark: pinkDark,
       blueDark: blueDark,
+      forgetPasswordText: forgetPasswordText,
+      registerSuccessful: registerSuccessful,
     );
   }
 
@@ -57,6 +64,8 @@ class MyColors extends ThemeExtension<MyColors> {
       pink: pink,
       pinkDark: pinkDark,
       blueDark: blueDark,
+      forgetPasswordText: forgetPasswordText,
+      registerSuccessful: registerSuccessful,
     );
   }
 
@@ -69,5 +78,7 @@ class MyColors extends ThemeExtension<MyColors> {
     pink: AppColors.pink, 
     pinkDark: AppColors.pinkDark,
     blueDark: AppColors.blueDark,
+    forgetPasswordText: AppColors.forgetPasswordText,
+    registerSuccessful: AppColors.registerSuccessful,
   );
 }

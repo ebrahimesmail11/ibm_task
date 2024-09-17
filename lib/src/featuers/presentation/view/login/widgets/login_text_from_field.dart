@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/animation/animation_do.dart';
@@ -6,7 +8,10 @@ import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
 import 'package:ibm_task/src/common/widgets/app_regex.dart';
 import 'package:ibm_task/src/common/widgets/app_text_from_field.dart';
+import 'package:ibm_task/src/featuers/presentation/providers/login/auth_provider_service.dart';
 import 'package:ibm_task/src/featuers/presentation/view/login/widgets/login_button.dart';
+import 'package:ibm_task/src/featuers/presentation/view_models.dart/login/login_view_model.dart';
+import 'package:provider/provider.dart';
 
 class LoginTextFromField extends StatefulWidget {
   const LoginTextFromField({super.key});
@@ -19,7 +24,7 @@ bool isShowPassword = true;
 final _formKey = GlobalKey<FormState>();
 final _passwordController = TextEditingController();
 final _emailController = TextEditingController();
-
+final LoginViewModel loginViewModel = LoginViewModelImpl();
 class _LoginTextFromFieldState extends State<LoginTextFromField> {
   @override
   Widget build(BuildContext context) {
@@ -48,8 +53,8 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
               ),
               keyboardType: TextInputType.emailAddress,
               validator: (p0) {
-                if (AppRegex.isEmailValid(p0!)) {
-                  return AppConstants.validEmail;
+                 if (!AppRegex.isEmailValid(p0!)) {
+                  return AppConstants.validEmail; // Return error message if invalid
                 }
                 return null;
               },
@@ -107,7 +112,25 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
             ),
           ),
           SizedBox(height: 30.h),
-           LoginButton(onPressed: (){},),
+           LoginButton(onPressed: (){
+                          if (_formKey.currentState!.validate()) {
+                            context
+                                .read<AuthProviderService>().shouldShowCircleIndicator(true);
+                            final email  =
+                                _emailController.text;
+                            final password = _passwordController.text;
+                            loginViewModel.login(
+                                email,
+                                password,
+                                context,
+                               );
+                              //  context.pushReplacementNamed();
+                          } else {
+                            context
+                                .read<AuthProviderService>()
+                                .shouldShowCircleIndicator(false);
+                          }
+           },),
         ],
       ),
     );
