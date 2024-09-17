@@ -1,5 +1,9 @@
 
+import 'dart:convert';
 
+LoginSuccess loginSuccessFromJson(String str) => LoginSuccess.fromJson(json.decode(str));
+
+String temperaturesToJson(LoginSuccess data) => json.encode(data.toJson());
 class LoginSuccess {
   bool? status;
   String? message;
