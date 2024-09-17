@@ -32,6 +32,9 @@ dependencies:
   flutter_screenutil: ^5.9.3
   font_awesome_flutter: ^10.7.0
   animate_do: ^3.3.4
+  http: ^1.2.2
+  provider: ^6.1.2
+  motion_toast: ^2.11.0
   flutter:
     sdk: flutter
 

@@ -3,8 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/animation/animation_do.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
+import 'package:ibm_task/src/common/base/text_styles.dart';
 import 'package:ibm_task/src/common/widgets/app_regex.dart';
 import 'package:ibm_task/src/common/widgets/app_text_from_field.dart';
+import 'package:ibm_task/src/featuers/presentation/view/login/widgets/login_button.dart';
 
 class LoginTextFromField extends StatefulWidget {
   const LoginTextFromField({super.key});
@@ -14,27 +16,31 @@ class LoginTextFromField extends StatefulWidget {
 }
 
 bool isShowPassword = true;
+final _formKey = GlobalKey<FormState>();
+final _passwordController = TextEditingController();
+final _emailController = TextEditingController();
 
 class _LoginTextFromFieldState extends State<LoginTextFromField> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomFadeInRight(
             duration: 400,
             child: Text(
-            AppConstants.email,
-            style: context.displayMedium!.copyWith(
-              color: Colors.black.withOpacity(.4),
+              AppConstants.email,
+              style: context.displayMedium!.copyWith(
+                color: Colors.black.withOpacity(.4),
+              ),
             ),
-                    ),
           ),
           CustomFadeInRight(
             duration: 400,
             child: CustomTextField(
-              controller: TextEditingController(),
+              controller: _emailController,
               hintText: AppConstants.typeYourUserName,
               prefixIcon: Icon(
                 Icons.person_2_outlined,
@@ -53,19 +59,19 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
           CustomFadeInRight(
             duration: 400,
             child: Text(
-            AppConstants.password,
-            style: context.displayMedium!.copyWith(
-              color: Colors.black.withOpacity(.4),
+              AppConstants.password,
+              style: context.displayMedium!.copyWith(
+                color: Colors.black.withOpacity(.4),
+              ),
             ),
-                    ),
           ),
           CustomFadeInRight(
             duration: 400,
             child: CustomTextField(
-              controller: TextEditingController(),
+              controller: _passwordController,
               hintText: AppConstants.typeYourPassword,
               prefixIcon: Icon(
-                Icons.lock,
+                Icons.lock_outline,
                 color: context.colors.grey,
               ),
               keyboardType: TextInputType.visiblePassword,
@@ -88,6 +94,20 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
               ),
             ),
           ),
+          SizedBox(height: 20.h),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              AppConstants.forgotPassword,
+              style: context.displayMedium!.copyWith(
+                fontSize: 14.sp,
+                fontWeight: TextStyles.bold,
+                color: Colors.black.withOpacity(.3),
+              ),
+            ),
+          ),
+          SizedBox(height: 30.h),
+           LoginButton(onPressed: (){},),
         ],
       ),
     );

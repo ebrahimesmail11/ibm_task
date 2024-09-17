@@ -32,20 +32,6 @@ class LoginScreen extends StatelessWidget {
         ),
         SizedBox(height: 40.h),
         const LoginTextFromField(),
-        SizedBox(height: 20.h),
-        Align(
-          alignment: Alignment.centerRight,
-          child: Text(
-            AppConstants.forgotPassword,
-            style: context.displayMedium!.copyWith(
-              fontSize: 14.sp,
-              fontWeight: TextStyles.bold,
-              color: Colors.black.withOpacity(.3),
-            ),
-          ),
-        ),
-        SizedBox(height: 30.h),
-        const LoginButton(),
         50.verticalSpace,
         CustomFadeInDown(
           duration: 600,
