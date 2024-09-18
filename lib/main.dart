@@ -14,22 +14,23 @@ void main() async{
   runApp(const MyApp());
 }
 Future<void> checkIfLoggedInUser() async {
-  try {
+  // try {
     final prefs = await SharedPreferences.getInstance();
 
     if (!prefs.containsKey(AppConstants.userAlreadyLoggedInKey)) {
       await LocalStorageHelper.deleteAll();
       isLoggedInUser = false;
     } else {
-      String? userToken = await LocalStorageHelper.read(AppConstants.usertoken);
+      await LocalStorageHelper.read(AppConstants.usertoken);
       isLoggedInUser =true;
-      if (userToken == null || userToken.isEmpty) {
-        print("No user token found.");
-      } else {
-        print("User token: $userToken");
-      }
+  //     if (userToken == null || userToken.isEmpty) {
+  //       print("No user token found.");
+  //     } else {
+  //       print("User token: $userToken");
+  //     }
+  //   }
+  // } catch (error) {
+  //   print("An error occurred: $error");
+  // }
     }
-  } catch (error) {
-    print("An error occurred: $error");
-  }
 }

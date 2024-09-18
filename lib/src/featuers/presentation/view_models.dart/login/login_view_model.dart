@@ -8,6 +8,7 @@ import 'package:ibm_task/src/common/base/app_exception.dart';
 
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
+import 'package:ibm_task/src/common/network/models/login/login_failure.dart';
 import 'package:ibm_task/src/common/network/models/login/login_success.dart';
 import 'package:ibm_task/src/common/network/service/failure.dart';
 import 'package:ibm_task/src/common/routing/routes.dart';
@@ -42,6 +43,7 @@ class LoginViewModelImpl implements LoginViewModel {
     try {
       final response = await loginUseCase.request(email, password);
              log('${response.message}');
+             
       if (response is LoginSuccess && context.mounted) {
         SharedPref().setString(response.data?.email ?? '');
         context.pushReplacementNamed(Routes.home);
@@ -49,10 +51,14 @@ class LoginViewModelImpl implements LoginViewModel {
                 title:   Text('Done SuccessFully', style: context.displayMedium!.copyWith(
           fontSize: 14.sp,
           color: context.colors.registerSuccessful,
-        ),), description:  Text('لقد تم تسجيل دخولك بنجاح', style: context.displayMedium!.copyWith(
+        ),), description:  Text('${response.message}', style: context.displayMedium!.copyWith(
           fontSize: 14.sp,
           color: context.colors.registerSuccessful,
         ),),)
+            .show(context);
+      }else if(response is LoginFailure && context.mounted){
+          MotionToast.error(
+                title: const Text('error title',), description: Text('${response.message}'),)
             .show(context);
       }
     } catch (error) {

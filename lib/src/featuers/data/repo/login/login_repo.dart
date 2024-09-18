@@ -27,7 +27,7 @@ class LoginRepoImpl implements LoginRepo {
       if (response['status'] == true) {
         return LoginSuccess.fromJson(response);
       } else {
-        return LoginFailure(status: false);
+        return LoginFailure.fromJson(response);
       }
     } catch (exception) {
       if (exception.runtimeType == AppException) {
