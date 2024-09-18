@@ -4,8 +4,6 @@ import 'package:ibm_task/src/common/animation/animation_do.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
-import 'package:ibm_task/src/common/storage/local_storage_helper.dart';
-import 'package:ibm_task/src/common/storage/shared_preferences.dart';
 import 'package:ibm_task/src/common/widgets/app_regex.dart';
 import 'package:ibm_task/src/common/widgets/app_text_from_field.dart';
 import 'package:ibm_task/src/featuers/presentation/providers/login/auth_provider_service.dart';
@@ -100,14 +98,17 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
             ),
           ),
           SizedBox(height: 20.h),
-          Align(
-            alignment: Alignment.centerRight,
-            child: Text(
-              AppConstants.forgotPassword,
-              style: context.displayMedium!.copyWith(
-                fontSize: 14.sp,
-                fontWeight: TextStyles.bold,
-                color: Colors.black.withOpacity(.3),
+          CustomFadeInLeft(
+            duration: 600,
+            child: Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                AppConstants.forgotPassword,
+                style: context.displayMedium!.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: TextStyles.bold,
+                  color: Colors.black.withOpacity(.3),
+                ),
               ),
             ),
           ),
