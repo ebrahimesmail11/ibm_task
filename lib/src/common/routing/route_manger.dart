@@ -4,7 +4,7 @@ import 'package:ibm_task/src/featuers/presentation/view/login/screens/home_scree
 import 'package:ibm_task/src/featuers/presentation/view/login/screens/login_screen.dart';
 
 class RouteManger {
-  static Route<dynamic> generateRoute(RouteSettings settings) {
+  static Route? generateRoute(RouteSettings settings) {
     final arguments = settings.arguments;
     switch (settings.name) {
       case Routes.login:
@@ -16,9 +16,7 @@ class RouteManger {
           builder: (_) =>   HomeScreen(),
         );
       default:
-        return MaterialPageRoute(
-          builder: (_) => const Scaffold(),
-        );
+        return null;
     }
   }
 }

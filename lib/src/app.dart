@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'IBM Task',
             theme: themeLight(),
+            initialRoute:  Routes.login,
             onGenerateRoute: RouteManger.generateRoute,
-            initialRoute: Routes.login,
           ),
         );
       },

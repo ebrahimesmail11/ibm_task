@@ -1,5 +1,6 @@
 class AppConstants {
    static const String userAlreadyLoggedInKey = "USER_LOGGED_IN";
+   static const String usertoken = "token";
    static const String baseUrl='https://student.valuxapps.com';
    //Auth
    static const String loginEndPoint = '$baseUrl/api/login';

@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/animation/animation_do.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
+import 'package:ibm_task/src/common/storage/local_storage_helper.dart';
+import 'package:ibm_task/src/common/storage/shared_preferences.dart';
 import 'package:ibm_task/src/common/widgets/app_regex.dart';
 import 'package:ibm_task/src/common/widgets/app_text_from_field.dart';
 import 'package:ibm_task/src/featuers/presentation/providers/login/auth_provider_service.dart';
@@ -81,7 +81,7 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
               ),
               keyboardType: TextInputType.visiblePassword,
               validator: (p0) {
-                if (AppRegex.isPasswordValid(p0!)) {
+                if (!AppRegex.isPasswordValid(p0!)) {
                   return AppConstants.validPasswrod;
                 }
                 return null;
@@ -124,7 +124,7 @@ class _LoginTextFromFieldState extends State<LoginTextFromField> {
                                 password,
                                 context,
                                );
-                              //  context.pushReplacementNamed();
+                               
                           } else {
                             context
                                 .read<AuthProviderService>()

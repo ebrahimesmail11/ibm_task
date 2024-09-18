@@ -23,6 +23,7 @@ abstract class LoginViewModel {
     String email,
     String password,
     BuildContext context,
+   
     
   );
   void navigateTo(BuildContext context, LoginSuccess successModel);
@@ -36,14 +37,23 @@ class LoginViewModelImpl implements LoginViewModel {
     loginUseCase = usecase ?? LoginUseCaseImpl(null);
 
   @override
-  Future<void> login(
-      String email, String password, BuildContext context ) async {
+  Future <void> login(
+      String email, String password,BuildContext context, ) async {
     try {
       final response = await loginUseCase.request(email, password);
              log('${response.message}');
       if (response is LoginSuccess && context.mounted) {
         SharedPref().setString(response.data?.email ?? '');
-        navigateTo(context, response);
+        context.pushReplacementNamed(Routes.home);
+         MotionToast.success(
+                title:   Text('Done SuccessFully', style: context.displayMedium!.copyWith(
+          fontSize: 14.sp,
+          color: context.colors.registerSuccessful,
+        ),), description:  Text('لقد تم تسجيل دخولك بنجاح', style: context.displayMedium!.copyWith(
+          fontSize: 14.sp,
+          color: context.colors.registerSuccessful,
+        ),),)
+            .show(context);
       }
     } catch (error) {
 
@@ -54,7 +64,7 @@ class LoginViewModelImpl implements LoginViewModel {
         context.read<AuthProviderService>().shouldShowCircleIndicator(false);
 
         MotionToast.error(
-                title: const Text('error title'), description: Text(error.message),)
+                title: const Text('error title',), description: Text(error.message),)
             .show(context);
       }
       if (error.runtimeType == AppException) {

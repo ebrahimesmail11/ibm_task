@@ -1,6 +1,3 @@
-
-
-import 'package:flutter/material.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/app_exception.dart';
 import 'package:ibm_task/src/common/network/models/login/login_success.dart';
@@ -17,7 +14,7 @@ late LoginRepo repo;
   LoginUseCaseImpl(LoginRepo? repo): repo = repo ?? LoginRepoImpl(null);
   
   @override
-  Future request(String email, String password, )async {
+  Future request(String email, String password )async {
     try{
       dynamic response =await  repo.getUserData(
         body: {
@@ -42,7 +39,6 @@ late LoginRepo repo;
    Future<void> saveUserTokenAndId(LoginSuccess model) async {
     await LocalStorageHelper.write('token', model.data?.token ?? '');
     await LocalStorageHelper.write('id', model.data?.id.toString() ?? '');
-
     await SharedPref().setBoolean(AppConstants.userAlreadyLoggedInKey, true);
   }
 }
