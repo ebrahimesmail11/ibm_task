@@ -1,6 +1,6 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/routing/route_manger.dart';
 import 'package:ibm_task/src/common/routing/routes.dart';
 import 'package:ibm_task/src/featuers/presentation/providers/login/auth_provider_service.dart';
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
                       ),
                     );
                   },
-                  initialRoute: Routes.login,
+                  initialRoute:isLoggedInUser ? Routes.home : Routes.login,
                   onGenerateRoute: RouteManger.generateRoute,
                 ),
               );

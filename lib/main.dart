@@ -10,15 +10,26 @@ import 'src/common/storage/local_storage_helper.dart';
 void main() async{
   await ScreenUtil.ensureScreenSize();
   await SharedPref().instantiatePreferences();
-  checkIfLoggedInUser();
+  await checkIfLoggedInUser();
   runApp(const MyApp());
 }
 Future<void> checkIfLoggedInUser() async {
-  final prefs = await SharedPreferences.getInstance();
+  try {
+    final prefs = await SharedPreferences.getInstance();
 
-  if (!prefs.containsKey(AppConstants.userAlreadyLoggedInKey)) {
-    await LocalStorageHelper.deleteAll();
-  } else {
-    await LocalStorageHelper.read(AppConstants.usertoken);
+    if (!prefs.containsKey(AppConstants.userAlreadyLoggedInKey)) {
+      await LocalStorageHelper.deleteAll();
+      isLoggedInUser = false;
+    } else {
+      String? userToken = await LocalStorageHelper.read(AppConstants.usertoken);
+      isLoggedInUser =true;
+      if (userToken == null || userToken.isEmpty) {
+        print("No user token found.");
+      } else {
+        print("User token: $userToken");
+      }
+    }
+  } catch (error) {
+    print("An error occurred: $error");
   }
 }

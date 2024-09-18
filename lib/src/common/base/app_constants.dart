@@ -1,3 +1,4 @@
+bool isLoggedInUser = false;
 class AppConstants {
    static const String userAlreadyLoggedInKey = "USER_LOGGED_IN";
    static const String usertoken = "token";

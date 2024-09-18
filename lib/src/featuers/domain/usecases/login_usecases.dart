@@ -22,7 +22,7 @@ late LoginRepo repo;
           "password":password,
         },
         headers: {
-          "Content-Type": "application/json", 
+          "Content-Type": "application/json",
         }
       );
       if(response is LoginSuccess){
@@ -39,6 +39,7 @@ late LoginRepo repo;
    Future<void> saveUserTokenAndId(LoginSuccess model) async {
     await LocalStorageHelper.write('token', model.data?.token ?? '');
     await LocalStorageHelper.write('id', model.data?.id.toString() ?? '');
+      isLoggedInUser = true;
     await SharedPref().setBoolean(AppConstants.userAlreadyLoggedInKey, true);
   }
 }
