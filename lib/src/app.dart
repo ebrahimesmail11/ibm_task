@@ -4,6 +4,7 @@ import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/routing/route_manger.dart';
 import 'package:ibm_task/src/common/routing/routes.dart';
 import 'package:ibm_task/src/featuers/presentation/providers/login/auth_provider_service.dart';
+import 'package:ibm_task/src/featuers/presentation/view_models.dart/home/home_view_model.dart';
 import 'package:ibm_task/src/utils/connectivity_controller.dart';
 import 'package:ibm_task/src/utils/no_network_screen.dart';
 import 'package:ibm_task/src/utils/theme/app_theme.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
               return MultiProvider(
                 providers: [
                   ChangeNotifierProvider(create: (_) => AuthProviderService()),
+                  ChangeNotifierProvider(create: (_)=>HomeViewModel()),
                 ],
                 child: MaterialApp(
                   debugShowCheckedModeBanner: false,

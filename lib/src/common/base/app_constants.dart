@@ -6,6 +6,8 @@ class AppConstants {
   static const String baseUrl = 'https://student.valuxapps.com';
   //Auth
   static const String loginEndPoint = '$baseUrl/api/login';
+  //home
+  static const String homeEndPoint = 'https://647449b37de100807b1a9428.mockapi.io/api/v1/messages';
 //ui
   static const String login = 'Login';
   static const String email = 'Email';

@@ -47,6 +47,7 @@ class LoginViewModelImpl implements LoginViewModel {
       if (response is LoginSuccess && context.mounted) {
         SharedPref().setString(response.data?.email ?? '');
         context.pushReplacementNamed(Routes.home);
+        context.read<AuthProviderService>().shouldShowCircleIndicator(true);
          MotionToast.success(
                 title:   Text('Done SuccessFully', style: context.displayMedium!.copyWith(
           fontSize: 14.sp,
@@ -60,6 +61,7 @@ class LoginViewModelImpl implements LoginViewModel {
           MotionToast.error(
                 title: const Text('error title',), description: Text('${response.message}'),)
             .show(context);
+             context.read<AuthProviderService>().shouldShowCircleIndicator(false);
       }
     } catch (error) {
 
