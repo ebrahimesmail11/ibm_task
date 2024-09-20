@@ -9,11 +9,10 @@ abstract class HomeRepo {
 Future<List<Person>> getHomeData();
 }
 class HomeRepoImp implements HomeRepo{
-  final NetworkService? _networkService;
-HomeRepoImp({
-   NetworkService? networkService
-  }) :
+ late final NetworkService? _networkService;
+ HomeRepoImp(NetworkService? networkService) {
     _networkService = networkService ?? NetworkService();
+  }
 
   @override
   Future<List<Person>> getHomeData() async{

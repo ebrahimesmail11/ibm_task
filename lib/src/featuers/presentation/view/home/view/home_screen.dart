@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
+import 'package:ibm_task/src/common/widgets/custom_linear_button.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/leading_app_bar.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/messages_body.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/title_app_bar.dart';
 import 'package:ibm_task/src/featuers/presentation/view_models.dart/home/home_view_model.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../../common/base/text_styles.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,8 +26,9 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
+   
     WidgetsBinding.instance.addPostFrameCallback((timeStamp){
-         Provider.of<HomeViewModel>(context,listen: false).getData();
+          Provider.of<HomeViewModel>(context,listen: false).getData();
     });
     
   }
@@ -64,14 +69,22 @@ class _HomeScreenState extends State<HomeScreen>
       body: TabBarView(
         controller: _tabController,
         children:  [
-          Consumer<HomeViewModel>(builder:(context,value,child)=> const   MessagesBody()),
-         const  Center(
-            child: Text(AppConstants.active),
+           const  MessagesBody(),
+           Center(
+            child: Text(
+                                      AppConstants.shopNow,
+                                      style: context.displayMedium!.copyWith(
+                                        color: context.colors.blue,
+                                        fontSize: 12.sp,
+                                        fontWeight: TextStyles.bold,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
           ),
-         const  Center(
+          const  Center(
             child: Text(AppConstants.groups),
           ),
-         const  Center(
+         const   Center(
             child: Text(AppConstants.calls),
           ),
         ],

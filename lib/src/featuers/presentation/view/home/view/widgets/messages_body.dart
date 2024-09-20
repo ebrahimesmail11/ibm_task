@@ -1,12 +1,18 @@
+import 'dart:developer';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/more_conversations_person.dart';
+import 'package:ibm_task/src/featuers/presentation/view_models.dart/home/home_view_model.dart';
+import 'package:provider/provider.dart';
 
 class MessagesBody extends StatelessWidget {
   const MessagesBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,12 +32,17 @@ class MessagesBody extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              const Expanded(
+              Expanded(
                 flex: 1,
                 child: CircleAvatar(
                   radius: 25,
-                  backgroundImage: NetworkImage(
-                      'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg'), // صورة الشخصية
+                  backgroundImage: const CachedNetworkImageProvider(
+                    'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg',
+                  ),
+                  onBackgroundImageError: (error, stackTrace) {
+                    // Handle background image error if needed
+                    log('Failed to load image: $error');
+                  },
                 ),
               ),
               Expanded(
@@ -133,10 +144,18 @@ class MessagesBody extends StatelessWidget {
         ),
         10.verticalSpace,
         Expanded(
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return const  MoreConversationsPerson();
+          child: Consumer<HomeViewModel>(
+            builder: (context, value, child) {
+              return value.showLoader
+                  ? const Center(child: CircularProgressIndicator())
+                  : ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: value.person?.length ?? 6,
+                      itemBuilder: (context, index) {
+                        return MoreConversationsPerson(
+                            person: value.person?[index]);
+                      },
+                    );
             },
           ),
         )
@@ -144,5 +163,3 @@ class MessagesBody extends StatelessWidget {
     );
   }
 }
-
-
