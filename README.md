@@ -1,16 +1,48 @@
-# ibm_task
+<h1 align="center" id="title">ibm_task</h1>
 
-A new Flutter project.
+<p align="center"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/800px-IBM_logo.svg.png" alt="project-image"></p>
 
-## Getting Started
+<p id="description">An application that displays data and logs from a fake API as an exercise in provider http and clean architecture.</p>
 
-This project is a starting point for a Flutter application.
+<h2>Project Screenshots:</h2>
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://i.postimg.cc/mk8sNCwL/Screenshot-1726934535.png" alt="project-screenshot" width="170" height="400/">
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<img src="https://i.postimg.cc/SKCb1wrt/Screenshot-1726934541.png" alt="project-screenshot" width="170" height="400/">
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://i.postimg.cc/8PY8p1X0/Screenshot-1726934579.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/2SdxHGW7/Screenshot-1726934630.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/6TJdc45P/Screenshot-1726934745.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/Y0gXtHvJ/Screenshot-1726933744.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/NfcDRZ9j/Screenshot-1726934662.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/DwfcMscV/Screenshot-1726934151.png" alt="project-screenshot" width="170" height="400/">
+
+<img src="https://i.postimg.cc/pTvrsQDz/erorr-network.jpg" alt="project-screenshot" width="170" height="400/">
+
+<h2>🍰 Contribution Guidelines:</h2>
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   animate\_do
+*   flutter\_secure\_storage
+*   flutter\_screenutil
+*   http
+*   provider
+*   dartz
+*   motion\_toast
+*   shared\_preferences
+*   connectivity\_plus
+*   cached\_network\_image
+
+<h2>💖Like my work?</h2>
+
+ebrahim.es11mail11@gmail.com<p>+201061769047</p>
