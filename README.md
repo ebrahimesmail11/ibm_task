@@ -5,8 +5,8 @@
 <p id="description">An application that displays data and logs from a fake API as an exercise in provider http and clean architecture.</p>
 
 <h2>Project Screenshots:</h2>
-
-<img src="https://i.postimg.cc/mk8sNCwL/Screenshot-1726934535.png" alt="project-screenshot" width="170" height="400/">
+<h2>
+  <img src="https://i.postimg.cc/mk8sNCwL/Screenshot-1726934535.png" alt="project-screenshot" width="170" height="400/">
 
 <img src="https://i.postimg.cc/SKCb1wrt/Screenshot-1726934541.png" alt="project-screenshot" width="170" height="400/">
 
@@ -23,9 +23,7 @@
 <img src="https://i.postimg.cc/DwfcMscV/Screenshot-1726934151.png" alt="project-screenshot" width="170" height="400/">
 
 <img src="https://i.postimg.cc/pTvrsQDz/erorr-network.jpg" alt="project-screenshot" width="170" height="400/">
-
-<h2>🍰 Contribution Guidelines:</h2>
-
+</h2>
   
   
 <h2>💻 Built with</h2>
@@ -44,5 +42,11 @@ Technologies used in the project:
 *   cached\_network\_image
 
 <h2>💖Like my work?</h2>
-
-ebrahim.es11mail11@gmail.com<p>+201061769047</p>
+<h2>
+  <img src="https://img.icons8.com/?size=48&amp;id=qyRpAggnV0zH&amp;format=png" alt="project-screenshot" width="25" height="25/">
+  ebrahim.es11mail11@gmail.com
+</h2>
+<h2>
+  <img src="https://img.icons8.com/?size=80&amp;id=LwCcDAb8qdY1&amp;format=png" alt="project-screenshot" width="25" height="25/">
+  +201061769047
+</h2>
