@@ -6,9 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
-import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/more_conversations_person.dart';
-import 'package:ibm_task/src/featuers/presentation/view_models.dart/home/home_view_model.dart';
-import 'package:provider/provider.dart';
+import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/more_conversations_person_list_view.dart';
 
 class MessagesBody extends StatelessWidget {
   const MessagesBody({super.key});
@@ -143,23 +141,12 @@ class MessagesBody extends StatelessWidget {
           ),
         ),
         10.verticalSpace,
-        Expanded(
-          child: Consumer<HomeViewModel>(
-            builder: (context, value, child) {
-              return value.showLoader
-                  ? const Center(child: CircularProgressIndicator())
-                  : ListView.builder(
-                      padding: EdgeInsets.zero,
-                      itemCount: value.person?.length ?? 6,
-                      itemBuilder: (context, index) {
-                        return MoreConversationsPerson(
-                            person: value.person?[index]);
-                      },
-                    );
-            },
-          ),
+        const Expanded(
+          child: MoreConversationsPersonListView(),
         )
       ],
     );
   }
 }
+
+

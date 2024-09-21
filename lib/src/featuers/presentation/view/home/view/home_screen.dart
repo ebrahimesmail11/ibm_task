@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
-import 'package:ibm_task/src/common/widgets/custom_linear_button.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/leading_app_bar.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/messages_body.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/title_app_bar.dart';
@@ -28,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController = TabController(length: 4, vsync: this);
    
     WidgetsBinding.instance.addPostFrameCallback((timeStamp){
-          Provider.of<HomeViewModel>(context,listen: false).getData();
+          Provider.of<HomeViewModel>(context,listen: false).getData("");
     });
     
   }

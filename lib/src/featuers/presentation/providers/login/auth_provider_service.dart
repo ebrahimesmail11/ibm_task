@@ -1,8 +1,5 @@
 
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:ibm_task/src/common/base/app_constants.dart';
 import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/network/models/home/person.dart';
 import 'package:ibm_task/src/common/network/models/login/login_success.dart';
