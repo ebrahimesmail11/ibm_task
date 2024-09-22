@@ -24,7 +24,7 @@
 
 <img src="https://i.postimg.cc/pTvrsQDz/erorr-network.jpg" alt="project-screenshot" width="170" height="400/">
 </h2>
-  
+
   
 <h2>💻 Built with</h2>
 
@@ -50,3 +50,61 @@ Technologies used in the project:
   <img src="https://img.icons8.com/?size=80&amp;id=LwCcDAb8qdY1&amp;format=png" alt="project-screenshot" width="25" height="25/">
   +201061769047
 </h2>
+<h2>
+  System Design
+</h2>
+## Project Structure
+
+The following structure outlines the key folders and files within the project:
+
+```bash
+lib/
+│
+├── src/
+│   ├── common/
+│   │   ├── base/
+│   │   ├── network/
+│   │   │   ├── models/
+│   │   │   │   ├── home/
+│   │   │   │   │   └── person.dart
+│   │   │   │   ├── login/
+│   │   │   │   │   ├── login_failure.dart
+│   │   │   │   │   └── login_success.dart
+│   │   │   ├── service/
+│   │   │       ├── api_response.dart
+│   │   │       ├── failure.dart
+│   │   │       ├── network_service.dart
+│   │   │       └── response_status.dart
+│   │   ├── routing/
+│   │   ├── storage/
+│   │   └── widgets/
+│   ├── features/
+│   │   ├── data/
+│   │   │   ├── remote/
+│   │   │   │   ├── login/
+│   │   │   │   │   └── login_remote.dart
+│   │   │   ├── repo/
+│   │   │   │   ├── home/
+│   │   │   │   │   └── home_repo.dart
+│   │   │   │   └── login/
+│   │   │   │       └── login_repo.dart
+│   │   ├── domain/
+│   │   │   ├── usecases/
+│   │   │       └── login_usecases.dart
+│   │   ├── presentation/
+│   │   │   ├── providers/
+│   │   │   │   └── login/
+│   │   │   │       └── auth_provider_service.dart
+│   │   │   ├── view/
+│   │   │   │   ├── home/
+│   │   │   │   └── login/
+│   │   ├── view_models/
+│   │       ├── home_view_model.dart
+│   │       └── login_view_model.dart
+│   ├── utils/
+│       ├── colors/
+│       ├── theme/
+│       ├── connectivity_controller.dart
+│       ├── no_network_screen.dart
+├── app.dart
+└── main.dart
