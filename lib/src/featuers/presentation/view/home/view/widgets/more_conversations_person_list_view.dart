@@ -12,17 +12,28 @@ class MoreConversationsPersonListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
       builder: (context, value, child) {
-        return value.showLoader
-            ? const Center(child: CircularProgressIndicator())
-                : ListView.builder(
-                    padding: EdgeInsets.zero,
-                    itemCount: value.filteredPerson?.length,
-                    itemBuilder: (context, index) {
-                      return MoreConversationsPerson(
-                          person: value.filteredPerson?[index] ??
-                              value.person?[index]);
-                    },
-                  );
+        if (value.showLoader) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        // Ensure that person is not null
+        if (value.person == null || value.person!.isEmpty) {
+          return const Center(child: Text('No conversations available.'));
+        }
+
+        // If filteredPerson is available, use it, otherwise use person
+        final people = value.filteredPerson?.isNotEmpty == true
+            ? value.filteredPerson!
+            : value.person!;
+        return ListView.builder(
+          padding: EdgeInsets.zero,
+          itemCount: people.length,
+          itemBuilder: (context, index) {
+            return MoreConversationsPerson(
+              person: people[index],
+            );
+          },
+        );
       },
     );
   }

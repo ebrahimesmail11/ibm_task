@@ -7,6 +7,7 @@ import 'package:ibm_task/src/common/base/extensions.dart';
 import 'package:ibm_task/src/common/base/text_styles.dart';
 import 'package:ibm_task/src/common/network/models/home/person.dart';
 
+
 class MoreConversationsPerson extends StatelessWidget {
   const MoreConversationsPerson({super.key, required this.person});
   final Person? person;
@@ -14,33 +15,16 @@ class MoreConversationsPerson extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
-  radius: 25,
-  backgroundImage: CachedNetworkImageProvider(
-    person?.image ??  'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg',  // Provide a fallback image URL
-  ),
-  onBackgroundImageError: (error, stackTrace) {
+      radius: 25,
+      backgroundImage: CachedNetworkImageProvider(
+            person?.image ??  'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg',  // Provide a fallback image URL
+      ),
+      onBackgroundImageError: (error, stackTrace) {
         // Handle background image error if needed
         log('Failed to load image: $error');
       },
-  // child: CachedNetworkImage(
-  //   imageUrl: person?.image ?? 'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg', // Fallback URL
-  //   imageBuilder: (context, imageProvider) => Container(
-  //     decoration: BoxDecoration(
-  //       shape: BoxShape.circle,
-  //       image: DecorationImage(
-  //         image: imageProvider,
-  //         fit: BoxFit.cover,
-  //         colorFilter: ColorFilter.mode(
-  //           Colors.red.withOpacity(0.3),
-  //           BlendMode.colorBurn,
-  //         ),
-  //       ),
-  //     ),
-  //   ),
-  //   placeholder: (context, url) => const CircularProgressIndicator(),
-  //   errorWidget: (context, url, error) =>const  Icon(Icons.error),
-  // ),
-),
+        child:const  Icon(Icons.person, color: Colors.grey),
+            ),
       title: Text(
         person?.userName.toString() ?? "",
         style: context.displayMedium!

@@ -4,9 +4,9 @@ import 'package:ibm_task/src/featuers/data/repo/home/home_repo.dart';
 
 class HomeViewModel extends ChangeNotifier {
   final homeRepo = HomeRepoImp(null);
-  List<Person>? _person;
-  List<Person>? get person => _person;
-  List<Person>? _filteredPerson; // القائمة المفلترة
+   List<Person>? _person;
+   List<Person>? get person => _person;
+   List<Person>? _filteredPerson; // القائمة المفلترة
   List<Person>? get filteredPerson => _filteredPerson;
   bool showLoader = false;
   String? errorMessage;
@@ -38,14 +38,4 @@ class HomeViewModel extends ChangeNotifier {
           notifyListeners();
     }
   }
-  //   void searchByName(String name) {
-  //   if (name.isEmpty) {
-  //     _filteredPerson = _person; // إظهار القائمة الأصلية إذا كان الحقل فارغًا
-  //   } else {
-  //     _filteredPerson = _person?.where((person) {
-  //       return person.userName!.toLowerCase().contains(name.toLowerCase());
-  //     }).toList();
-  //   }
-  //   notifyListeners(); // تحديث الـ UI بعد تطبيق الفلتر
-  // }
 }
