@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ibm_task/src/featuers/presentation/view/home/view/widgets/more_conversations_person.dart';
 import 'package:ibm_task/src/featuers/presentation/view_models.dart/home/home_view_model.dart';
 import 'package:provider/provider.dart';
@@ -31,7 +32,6 @@ class _MoreConversationsPersonListViewState extends State<MoreConversationsPerso
          context.read<HomeViewModel>().loadMorePepole();
       }
   }
-
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
@@ -39,19 +39,15 @@ class _MoreConversationsPersonListViewState extends State<MoreConversationsPerso
         if (value.showLoader) {
           return const Center(child: CircularProgressIndicator());
         }
-
-        // Ensure that person is not null
         if (value.person == null || value.person!.isEmpty) {
           return const Center(child: Text('No conversations available.'));
         }
-
-        // If filteredPerson is available, use it, otherwise use person
         final people = value.filteredPerson?.isNotEmpty == true
             ? value.filteredPerson!
             : value.displayedPersons!;
         return ListView.builder(
           controller: _scrollController,
-          padding: EdgeInsets.zero,
+          padding: EdgeInsets.only(bottom: 110.w),
           itemCount: people.length + (value.isLoadingMore ? 1 : 0),
           itemBuilder: (context, index) {
             return index>=people.length? const  Center(child:  CircularProgressIndicator()): MoreConversationsPerson(

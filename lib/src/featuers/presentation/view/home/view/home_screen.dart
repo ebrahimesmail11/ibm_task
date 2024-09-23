@@ -25,11 +25,10 @@ class _HomeScreenState extends State<HomeScreen>
   void initState() {
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
-   
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp){
-          Provider.of<HomeViewModel>(context,listen: false).getData("");
+
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<HomeViewModel>(context, listen: false).getData("");
     });
-    
   }
 
   @override
@@ -67,23 +66,23 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children:  [
-           const  MessagesBody(),
-           Center(
+        children: [
+          const MessagesBody(),
+          Center(
             child: Text(
-                                      AppConstants.shopNow,
-                                      style: context.displayMedium!.copyWith(
-                                        color: context.colors.blue,
-                                        fontSize: 12.sp,
-                                        fontWeight: TextStyles.bold,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                    ),
+              AppConstants.shopNow,
+              style: context.displayMedium!.copyWith(
+                color: context.colors.blue,
+                fontSize: 12.sp,
+                fontWeight: TextStyles.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
-          const  Center(
+          const Center(
             child: Text(AppConstants.groups),
           ),
-         const   Center(
+          const Center(
             child: Text(AppConstants.calls),
           ),
         ],
