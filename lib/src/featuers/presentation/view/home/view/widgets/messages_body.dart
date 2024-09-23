@@ -82,13 +82,6 @@ class MessagesBody extends StatelessWidget {
                               errorWidget: (context, url, error) =>
                                 const   Icon(Icons.error),
                             ),
-                            // child: Image.network(
-                            //   'https://gratisography.com/wp-content/uploads/2024/01/gratisography-covered-in-confetti-1170x780.jpg', // صورة الإعلان
-                            //   fit: BoxFit.cover,
-                            //   width: double.infinity,
-                            //   height: 150.h,
-                            //   alignment: Alignment.center,
-                            // ),
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(vertical: 4.0.h),

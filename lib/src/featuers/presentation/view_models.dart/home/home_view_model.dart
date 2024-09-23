@@ -6,9 +6,12 @@ class HomeViewModel extends ChangeNotifier {
   final homeRepo = HomeRepoImp(null);
    List<Person>? _person;
    List<Person>? get person => _person;
+   List<Person>? _displayedPersons=[];
+   List<Person>? get displayedPersons => _displayedPersons;
    List<Person>? _filteredPerson; // القائمة المفلترة
   List<Person>? get filteredPerson => _filteredPerson;
   bool showLoader = false;
+  bool isLoadingMore=false;
   String? errorMessage;
   Future<void> getData(String userName) async {
     showLoader = true;
@@ -17,6 +20,7 @@ class HomeViewModel extends ChangeNotifier {
     try {
       final response = await homeRepo.getHomeData(userName);
       _person = response;
+      _displayedPersons= _person!.take(8).toList();
       showLoader = false;
       notifyListeners();
     } catch (e) {
@@ -37,5 +41,20 @@ class HomeViewModel extends ChangeNotifier {
           .toList();
           notifyListeners();
     }
+ }
+
+ void loadMorePepole()async{
+   if(isLoadingMore || person == null) return;
+   isLoadingMore = true;
+   notifyListeners();
+  await Future.delayed(const Duration(seconds:1 ));
+  int currentLength= _displayedPersons!.length;
+  if(currentLength +8 < person!.length){
+    _displayedPersons!.addAll(person!.skip(currentLength).take(8));
+  }else{
+    _displayedPersons!.addAll(person!.skip(currentLength));
   }
+  isLoadingMore = false;
+  notifyListeners();
+ }
 }
