@@ -40,6 +40,7 @@ Technologies used in the project:
 *   shared\_preferences
 *   connectivity\_plus
 *   cached\_network\_image
+*   pagination
 
 <h2>💖Like my work?</h2>
 <h2>
